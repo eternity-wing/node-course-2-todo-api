@@ -85,7 +85,7 @@ describe('Post /todos', () => {
 
 
         it('should return 404 if todo not found', (done) => {
-            var hexId = new ObjectID().toHexString();
+            var hexId = new ObjectID.toHexString();
             request(app)
             .get(`/todos/${hexId}`).
             expect(404).end(done);
@@ -99,6 +99,13 @@ describe('Post /todos', () => {
         });
 
 
+    });
+
+    describe('DELETE /todos/:id ', () => {
+        it('should return 200, remove and return todo', (done) => {
+            var id = '';
+            request(app).delete('/todos/${id}').expect(200).expect();
+        });
     });
 
 });
