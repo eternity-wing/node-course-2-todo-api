@@ -83,7 +83,7 @@ app.patch('/todos/:id', authenticate, (req, res) => {
     var id = req.params.id;
     var body = _.pick(req.body, ['text', 'completed']);
   
-    if (!ObjectID.isValid(id)) {
+    if (!ObjectId.isValid(id)) {
       return res.status(404).send();
     }
   

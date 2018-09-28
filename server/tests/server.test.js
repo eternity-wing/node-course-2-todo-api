@@ -183,7 +183,7 @@ describe('Post /todos', () => {
             .expect((res) => {
               expect(res.body.todo.text).toBe(text);
               expect(res.body.todo.completed).toBe(true);
-              expect(res.body.todo.completedAt).toBeA('number');
+              expect(typeof res.body.todo.completedAt).toBe('number');
             })
             .end(done);
         });
@@ -218,7 +218,7 @@ describe('Post /todos', () => {
             .expect((res) => {
               expect(res.body.todo.text).toBe(text);
               expect(res.body.todo.completed).toBe(false);
-              expect(res.body.todo.completedAt).toNotExist();
+              expect(res.body.todo.completedAt).not.toBeTruthy();
             })
             .end(done);
         });
